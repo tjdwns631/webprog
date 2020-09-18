@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            display: inline;
+
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="/html/default.asp" target="_blank">HTML</a></li>
+        <li><a href="/css/default.asp" target="_blank">CSS</a></li>
+        <li><a href="/js/default.asp" target="_blank">JavaScript</a></li>
+      </ul>
+      <button id="btn">클릭</button>
+      <button id="show">클릭</button>
+
+      <script>
+        var btn =document.getElementById("btn");
+        console.log(btn);
+        btn.onclick =function(){
+          var lis = document.querySelectorAll("li")
+            for(var i=0; i<lis.length; i++){
+              lis[i].style.display="none";
+            }
+        }
+
+        var show =document.getElementById("show");
+        console.log(btn);
+        show.onclick =function(){
+          var lis = document.querySelectorAll("li")
+            for(var i=0; i<lis.length; i++){
+              lis[i].style.display="inline";
+            }
+        }
+      </script>
+</body>
+</html>

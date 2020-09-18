@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="layout.css">
+</head>
+<body>
+
+<h2>CSS Layout Float</h2>
+<p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.</p>
+<p>Resize the browser window to see the responsive effect (you will learn more about this in our next chapter - HTML Responsive.)</p>
+
+<header>
+  <h2>Cities</h2>
+</header>
+
+<section>
+  <nav style="height: 600px;">
+    <ul>
+    <li><a href="layout.html">London</a></li>
+    <li><a href="paris.html">Paris</a></li>
+    <li><a href="tokyo.html">Tokyo</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <form action="tokyo.jsp" method="POST">
+        <fieldset>
+            <legend>개인 정보 입력</legend>
+            <p>아 이 디: <input type="text" name="id"</p>
+            <p>비밀번호: <input type="password" name="password"</p>
+            <p>생년월일: <input type="date" name="date"</p>
+            <p>성별 : <input type="radio" name="sex" value="male" checked>남자
+                      <input type="radio" name="sex" value="female">여자
+            </p>
+            <p>E-mail: <input type="email" name="email"</p>
+            <p>메일수신: <input type="radio" name="agr" value="agree" checked>수신동의
+                <input type="radio" name="agr" value="disagree">수신거부
+            </p>
+            <p>핸드폰 : <select name="tel">
+                            <option value="010">010</option>
+                            <option value="011">011</option>
+                            <option value="018">018</option>
+                        </select>
+                        <input type="tel" name="tel1">
+            </p>
+            <p>취미: <input type="checkbox" name="hobi" value="쇼핑" checked>쇼핑
+                <input type="checkbox" name="hobi" value="인터넷">인터넷
+                <input type="checkbox" name="hobi" value="음악감상">음악감상
+                <input type="checkbox" name="hobi" value="독서">독서
+                <input type="checkbox" name="hobi" value="스포츠">스포츠               
+            </p>
+            <p>자기소개: <textarea name="area"cols="30" rows="10"></textarea></p>
+        </fieldset>
+        <input type="submit" value="등록">
+        <input type="reset" value="초기화">
+    </form>
+  </article>
+</section>
+
+<footer>
+  <p>Footer</p>
+</footer>
+
+</body>
+</html>

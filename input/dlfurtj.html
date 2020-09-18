@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>개인 정보 입력</legend>
+            <p>아 이 디: <input type="text" name="id"</p>
+            <p>비밀번호: <input type="password" name="password"</p>
+            <p>생년월일: <input type="date" name="date"</p>
+            <p>성별 : <input type="radio" name="sex" value="male" checked>남자
+                      <input type="radio" name="sex" value="female">여자
+            </p>
+            <p>E-mail: <input type="email" name="email"</p>
+            <p>메일수신: <input type="radio" name="agr" value="agree" checked>수신동의
+                <input type="radio" name="agr" value="disagree">수신거부
+            </p>
+            <p>핸드폰 : <select name="tel">
+                            <option value="1">010</option>
+                            <option value="2">011</option>
+                            <option value="3">018</option>
+                        </select>
+                        <input type="tel" name="tel">
+            </p>
+            <p>취미: <input type="checkbox" name="hobi" value="hobi" checked>쇼핑
+                <input type="checkbox" name="hob" value="hob">인터넷
+                <input type="checkbox" name="ho" value="ho">음악감상
+                <input type="checkbox" name="h" value="h">독서
+                <input type="checkbox" name="i" value="i">스포츠               
+            </p>
+            <p>자기소개: <textarea name="area"cols="30" rows="10"></textarea></p>
+        </fieldset>
+        <input type="submit" value="등록">
+        <input type="reset" value="초기화">
+    </form>
+</body>
+</html>

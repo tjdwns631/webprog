@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        background-image: url("gajjak.gif");
+        background-size: 200px;
+        
+      }
+    </style>
+</head>
+<body>
+    
+    <input type="text" >~
+    <input type="text" >=
+    <input type="text" >
+    <p />
+    <input type="button" id="btn" value="OK">
+    <p />
+    
+    <script>
+        var btn = document.getElementById("btn");
+        var inputs=document.querySelectorAll('[type="text"]');
+
+        console.log(inputs);
+
+        btn.onclick = function () {
+            var fv= inputs[0].value;
+            var tv= inputs[1].value;
+            var rlt = document.querySelectorAll(div);[0];
+
+        fv=parseInt(fv);
+        tv=parseInt(tv);
+            
+            result = 0;
+            var result = "hello";
+            
+            //1~10까지 합
+            var sum = 0;
+            for(var i=0; i<=10; i++){
+                sum=sum+i;
+            }
+            var sum1 = 0;
+            for(var i=fv; i<=tv; i++){
+                sum1 = sum1+i
+            }
+            console.log(sum);
+            console.log(sum1);
+            console.log(result);
+            document.getElementById("result").value=sum1;
+        }  
+         </script>
+</body>
+</html>

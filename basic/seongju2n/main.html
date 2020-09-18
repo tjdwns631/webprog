@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial;
+      padding: 10px;
+      background: #f1f1f1;
+    }
+
+    .header {
+      font-size: 35px;
+      padding: 40px;
+      text-align: center;
+      background: white;
+    }
+
+    .leftcolumn {
+      float: left;
+      width: 75%;
+    }
+
+    .rightcolumn {
+      float: left;
+      width: 25%;
+      background-color: #f1f1f1;
+      padding-left: 20px;
+    }
+
+    .fakeimg {
+      background-color: #aaa;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background: #ddd;
+      margin-top: 20px;
+    }
+
+    @media screen and (max-width: 800px) {
+
+      .leftcolumn,
+      .rightcolumn {
+        width: 100%;
+        padding: 0;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      .topnav a {
+        float: none;
+        width: 100%;
+      }
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: white;
+      border-style: ridge;
+    }
+
+    .topnav a {
+      float: left;
+      display:block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .topnav a:hover {
+      background-color: rgb(240, 233, 233);
+      color: black;
+    }
+
+    .dropbtn {
+      background-color: white;
+      color: rgb(14, 13, 13);
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position:relative;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    하나투어
+    <input type="text" placeholder="검색어 입력">
+    <button>검색</button>
+  </div>
+
+  <div class="topnav">
+    <div class="dropdown">
+      <button class="dropbtn">전체 메뉴</button>
+      <div class="dropdown-content">
+        <a href="#">국내여행</a>
+        <a href="#">패키지여행</a>
+        <a href="#">자유여행</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">해외패키지</button>
+      <div class="dropdown-content">
+        <a href="#">동남아/대만/서남아</a>
+        <a href="#">일본</a>
+        <a href="#">유럽/아프리카</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">항공</button>
+      <div class="dropdown-content">
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">호텔</button>
+      <div class="dropdown-ㄴcontent">
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">투어입장권</button>
+      <div class="dropdown-content">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Dec 7, 2017</h5>
+        <div class="fakeimg" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco.</p>
+      </div>
+      <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Sep 2, 2017</h5>
+        <div class="fakeimg" style="height:200px;">Image</div>
+        <p>Some text..</p>
+        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco.</p>
+      </div>
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <h2>About Me</h2>
+        <div class="fakeimg" style="height:100px;">Image</div>
+        <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      </div>
+      <div class="card">
+        <h3>Popular Post</h3>
+        <div class="fakeimg">
+          <p>Image</p>
+        </div>
+        <div class="fakeimg">
+          <p>Image</p>
+        </div>
+        <div class="fakeimg">
+          <p>Image</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Follow Me</h3>
+        <p>Some text..</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <h2>Footer</h2>
+  </div>
+
+</body>
+
+</html>
