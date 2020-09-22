@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>condiotion</title>
+<style>
+    .redcol{
+        background-color: red;
+        color: white;
+    }
+    .redcol1{
+        background-color:blue;
+        color: white;
+    }
+    
+</style>
+</head>
+<body>
+
+    <div id="showResult" style="border: 1px solid red  ;"></div>
+    <script>
+        var cols=['일','월','화','수','목','금','토'];
+        // for(i=0; i<cols.length; i++){
+        //    console.log(cols[i]);
+        // }
+        // for(col of cols){
+        //  console.log(col);   
+        // }
+        // cols.forEach(function(a,b,c){
+        //     console.log(a,b,c);
+        // });
+        var i = 1;
+        var tag= "<table border='1'><tr>";
+        var elem = document.getElementById("showResult");
+        // for(col of cols){
+        //  console.log(col);
+        //  tag += "<td>"+ col +"</td>";   
+        // }
+cols.forEach(function(a,b,c){
+if(b){
+    tag+= "<td>" +a + "</td>"
+}else{
+    tag += "<td calss='redcol'>" + a+ "</td>";
+}
+});
+        while(i<=30){
+            if(i%7==1){
+            tag  +="</tr><tr><td class='redcol'>" + i + "</td>";
+            }else if(i%7==0){
+                tag  +="<td class='redcol1'>" + i + "</td>";     
+            }else{
+                tag+= "<td>" + i + "</td>";
+            }
+            i++;
+        }
+       tag += "</tr></table>";
+            elem.innerHTML =tag;
+    //    var bool1 = 10<8; //false;
+    //    var sum =0;
+    //    for(var i =0; i<5; i++){
+    //     bool1=!bool1;
+    //     if(bool1){
+    //         sum +=i;
+    //     }
+    //     console.log(sum);
+        // console.log(i, bool1);
+    //    }
+    //    if(bool1){
+    //     console.log("참 : "+bool1);
+    //    }else{
+    //        console.log("거짓 : "+bool1);
+    //    }
+        </script>
+</body>
+</html>

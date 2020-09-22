@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .redcol {
+            background-color: red;
+            color: white;
+        }
+
+        .redcol1 {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="showCalendar" style="border: 1px solid red  ;"></div>
+    <script>
+        var i = 1;
+        var tag = "<table border='1'><tr>";
+        var elem = document.getElementById("showCalendar");
+        var today = new Date();
+        var cnt = 0;
+        var cols = ['일', '월', '화', '수', '목', '금', '토'];
+        cols.forEach(function (a, b, c) {
+            if (b) {
+                tag += "<td>" + a + "</td>"
+            } else {
+                tag += "<td calss='redcol'>" + a + "</td>";
+            }
+        });
+        //    console.log(today.getFullYear());
+        //    console.log(today.getMonth());
+        //    console.log(today.getDate());
+        //    var year = today.getFullYear();
+        //    var month = today.getMonth();
+        //    var todate =  today.getDate();
+        //    var toMonth = new Date(year,month,0)
+        //    var lastDate = new Date(year,month+1,0)
+        //    console.log("todate:" +today.getDate());
+        //    console.log("today: " +today.getDay());
+         console.log(new Date(2020, 9, 0).getDate());
+        var lastday=new Date(2020, 10, 0).getDate();
+        var startday=today.getDay();
+        today.setDate(1);
+        for (var i = 0; i < startday; i++) {
+            if (i == 0) {
+                tag += "<tr>"
+            }
+            tag += "<td></td>"
+            cnt++;
+        }
+        for (var i = 1; i <=lastday-1; i++) {
+            if (cnt % 7 ==0) {
+                tag += "<tr><td>" + i + "</td>";
+            } else {
+                tag += "<td>" + i + "</td>";
+            }
+            cnt++;
+        }
+        console.log(tag);
+        elem.innerHTML = tag;
+    </script>
+</body>
+
+</html>
