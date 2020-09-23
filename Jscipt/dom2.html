@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .lis{
+        background-color: aqua;
+    }
+    .dd{
+        background-color: aqua;
+    }
+</style>
+<script src="dom.js"></script>
+</head>
+<body id ="bdy">
+
+    <div>
+        <p>Hello</p>
+        <h2>World</h2>
+    </div>
+
+
+    <script>
+        document.querySelectorAll("body");
+        let bdy = document.getElementsByTagName("body");
+        bdy[0].innerHTML = "<h1>hello</h1>"
+
+        let $ul = document.createElement("ul");
+        let $li = document.createElement("li");
+        let $text = document.createTextNode("오렌지");
+        $li.setAttribute("class","lis");
+        $ul.appendChild($li);
+        $li.appendChild($text);
+
+        $text = document.createTextNode("사과");
+        $li = document.createElement("li");
+        $li.setAttribute("style", "background: yellow");
+        $li.appendChild($text);
+        $ul.appendChild($li);
+        bdy[0].appendChild($ul)
+        
+        let $div = document.createElement("div");
+        let $p = document.createElement("p");
+        let $h2 = document.createElement("h2");
+        let $text2 = document.createTextNode("Hello");
+        let $text3 = document.createTextNode("World");
+        $div.setAttribute("class", "dd");
+        $div.appendChild($p);
+        $p.appendChild($text2)
+        $div.appendChild($h2);
+        $h2.appendChild($text3);
+        bdy[0].appendChild($div);
+    </script>
+   
+</body>
+</html>

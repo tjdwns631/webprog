@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom.html</title>
+</head>
+
+<body>
+    <div id="ddd">
+        <a href="#">링크A</a>
+        <ul>
+            <li>오렌지</li>
+            <li>사과</li>
+            <li>
+                <ol>
+                    <li>부사</li>
+                    <li>우오리</li>
+                    <li>홍옥</li>
+                </ol>
+            </li>
+        </ul>
+        <h2>여기찾아보세요.</h2>
+    </div>
+    <script>
+        
+        let ddd = document.getElementById("ddd");
+        console.log(ddd.childNodes[3].childNodes[1].childNodes[0].nodeValue);
+        ddd.childNodes[3].childNodes[1].childNodes[0].nodeValue ="바나나"
+        ddd.childNodes[3].childNodes[1].style.background="red"
+        console.log(ddd.childNodes[3].childNodes[5].childNodes[1].childNodes[3]);
+        ddd.childNodes[5].childNodes[0].nodeValue = "찾았습니다";
+        ddd.childNodes[5].style.background="blue";
+    </script>
+</body>
+
+</html>
