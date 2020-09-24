@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="name">이름</label>
+    <input class="first" type="text" name="name" id="first_name" value="Hong">
+    <label for="name">지위</label>
+    <input class="first" type="text" name="position" value="Developer"><br>
+    <label for="name">사무실</label>
+    <input class="first" type="text" name="office" value="Seoul">
+    <label for="name">나이</label>
+    <input class="first" type="text" name="age" value=25><br>
+    <label for="name">입사일</label>
+    <input class="first" type="text" name="startDate" value="2020/05/01">
+    <label for="name">급여</label>
+    <input class="first" type="text" name="salary" value=3000><br>
+    <button id="insert">입력</button>
+
+    <table id="example" border='1' style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$86,000</td>
+            </tr>
+            <tr>
+                <td>Cedric Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>Edinburgh</td>
+                <td>22</td>
+                <td>2012/03/29</td>
+                <td>$433,060</td>
+            </tr>
+            <tr>
+                <td>Airi Satou</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>33</td>
+                <td>2008/11/28</td>
+                <td>$162,700</td>
+            </tr>
+            <tr>
+                <td>Brielle Williamson</td>
+                <td>Integration Specialist</td>
+                <td>New York</td>
+                <td>61</td>
+                <td>2012/12/02</td>
+                <td>$372,000</td>
+            </tr>
+            <tr>
+                <td>Herrod Chandler</td>
+                <td>Sales Assistant</td>
+                <td>San Francisco</td>
+                <td>59</td>
+                <td>2012/08/06</td>
+                <td>$137,500</td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="btn">클릭</button><br>
+
+
+    <div>
+        <label for="name">Name</label>
+        <input class="ss" type="text" name="name">
+        <label for="name">Position</label>
+        <input class="ss" type="text" name="position"><br>
+        <label for="name">Office</label>
+        <input class="ss" type="text" name="office">
+        <label for="name">Age</label>
+        <input class="ss" type="text" name="age"><br>
+        <label for="name">Start Date</label>
+        <input class="ss" type="text" name="startDate">
+        <label for="name">Salary</label>
+        <input class="ss" type="text" name="salary"><br>
+        <button id="update">수정</button>
+    </div>
+    <script>
+        //클릭 버튼에 이벤트 
+        let ins = document.getElementById("insert");
+        ins.addEventListener("click", function () {
+            let types = document.querySelectorAll(".first")
+            console.log(types);
+            let $tr = document.createElement("tr");
+            $tr.onmouseover = function () {
+                this.style.background = "yellow";
+            }
+            $tr.onmouseout = function () {
+                this.style.background = "";
+            }
+            $tr.click = function () {
+                this.style.background = "blue";
+                console.log(tds[i].childNodes[7].childNodes[0].nodeValue)
+            }
+            for (let i = 0; i < types.length; i++) {
+                console.log(types[i].value)
+                let $td = document.createElement("td");
+                let $text = document.createTextNode(types[i].value);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            let exam = document.getElementById("example");
+            exam.childNodes[3].appendChild($tr);
+            for (let i = 0; i < types.length; i++) {
+                types[i].value = ""; //초기화
+            }
+        });
+
+        
+        let tds = document.querySelectorAll("tbody tr");
+        for (let i = 0; i < tds.length; i++) {
+            tds[i].addEventListener("mouseover", function () {
+                this.style.background = "yellow"
+            });
+            tds[i].addEventListener("mouseout", function () {
+                this.style.background = "";
+            });
+            tds[i].addEventListener("click", function () { 
+                let update = document.querySelectorAll(".ss")
+                // update[0].value = this.childNodes[1].childNodes[0].nodeValue; 
+                // update[1].value = this.childNodes[3].childNodes[0].nodeValue; 
+                // update[2].value = this.childNodes[5].childNodes[0].nodeValue; 
+                // update[3].value = this.childNodes[7].childNodes[0].nodeValue; 
+                // update[4].value = this.childNodes[9].childNodes[0].nodeValue; 
+                // update[5].value = this.childNodes[11].childNodes[0].nodeValue; 
+                for(var i=0; i<update.length; i++){
+                    update[i].value = this.childNodes[1+(2*i)].childNodes[0].nodeValue;
+                }
+            });
+        }
+        let update= document.getElementById("update");
+        update.addEventListener("click", function(){
+            var tr = document.querySelectorAll("tr");
+            
+            for(let trs of tr){
+                var cn = trs.childNodes[1].firstChild.nodeValue;
+
+            }
+            console.log(update[0].value)
+            
+        });
+
+
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", function () {
+            console.log(this)
+            this.style.background = "red";
+        });
+        btn.addEventListener("mouseover", function () {
+            console.log(this)
+            this.style.background = "yellow";
+        });
+        btn.addEventListener("mouseout", function () {
+            console.log(this)
+            this.style.background = "";
+        });
+    </script>
+
+</body>
+
+</html>

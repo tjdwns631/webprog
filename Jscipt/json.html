@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json.html</title>
+</head>
+
+<body>
+    <p id="showResult"></p>
+    <button onclick="showRowCnt()">보여저</button><br>
+    <label>ID</label>
+    <input class="aa" type="text" name="id"><br>
+    <label>FirstName</label>
+    <input class="aa" type="text" name="first_name"><br>
+    <label>LastName</label>
+    <input class="aa" type="text" name="last_name"><br>
+    <button id="update">변경</button>
+    <script>
+        let date = [{
+                "id": 1,
+                "first_name": "Ilario",
+                "last_name": "Levin",
+                "email": "ilevin0@noaa.gov",
+                "gender": "Male",
+                "ip_address": "221.161.162.210"
+            },
+            {
+                "id": 2,
+                "first_name": "Erik",
+                "last_name": "Maxwaile",
+                "email": "emaxwaile1@walmart.com",
+                "gender": "Male",
+                "ip_address": "89.8.26.149"
+            },
+            {
+                "id": 3,
+                "first_name": "Timothee",
+                "last_name": "Jurisic",
+                "email": "tjurisic2@myspace.com",
+                "gender": "Male",
+                "ip_address": "229.86.48.121"
+            },
+            {
+                "id": 4,
+                "first_name": "Demetria",
+                "last_name": "Hemstead",
+                "email": "dhemstead3@buzzfeed.com",
+                "gender": "Female",
+                "ip_address": "48.234.220.202"
+            },
+            {
+                "id": 5,
+                "first_name": "Elsa",
+                "last_name": "McQuilkin",
+                "email": "emcquilkin4@nps.gov",
+                "gender": "Female",
+                "ip_address": "184.240.6.102"
+            },
+            {
+                "id": 6,
+                "first_name": "Wang",
+                "last_name": "Benting",
+                "email": "wbenting5@nih.gov",
+                "gender": "Male",
+                "ip_address": "99.166.137.86"
+            },
+            {
+                "id": 7,
+                "first_name": "Avrom",
+                "last_name": "Sharples",
+                "email": "asharples6@amazon.co.jp",
+                "gender": "Male",
+                "ip_address": "223.104.62.106"
+            },
+            {
+                "id": 8,
+                "first_name": "Faulkner",
+                "last_name": "Aylen",
+                "email": "faylen7@sbwire.com",
+                "gender": "Male",
+                "ip_address": "17.161.41.57"
+            },
+            {
+                "id": 9,
+                "first_name": "Simona",
+                "last_name": "Dugald",
+                "email": "sdugald8@google.com.hk",
+                "gender": "Female",
+                "ip_address": "98.172.226.215"
+            },
+            {
+                "id": 10,
+                "first_name": "Alice",
+                "last_name": "Bittlestone",
+                "email": "abittlestone9@weibo.com",
+                "gender": "Female",
+                "ip_address": "32.51.216.153"
+            }
+        ]
+        // console.log(date);
+        // for(let i=0; i<date.length; i++){
+        //     console.log(date[i].first_name);
+        // }
+        // for(let filed in date[19]){//필드가지고올떄 in
+        //     console.log(filed, date[19][filed]);
+        // }
+        // for(let datum of date){//배열은 of
+        //     console.log(datum);
+        // }
+        let fields = ["id", "first_name", "last_name", "email", "gender", "button"]; //보고싶은값만 선택가능
+        let table, tr, td, text; //변수선언
+        table = document.createElement("table");
+        table.setAttribute('border', '1');
+
+        //필드
+        tr = document.createElement("tr");
+        table.appendChild(tr);
+        for (let title of fields) {
+            td = document.createElement("th");
+            text = document.createTextNode(title.replace("_", "").toUpperCase());
+            td.appendChild(text);
+            tr.appendChild(td);
+        }
+
+        date.forEach(function (obj, idx, ary) {
+            //한건 tr에 담기
+            tr = document.createElement("tr");
+            tr.addEventListener("mouseover", function () {
+                this.style.background = "yellow";
+            });
+            tr.addEventListener("mouseout", function () {
+                this.style.background = "";
+            });
+            tr.addEventListener("click", function () {
+                localStorage.setItem("rowNum", idx);
+                localStorage.setItem("first_name", this.childNodes[1].firstChild.nodeValue);
+
+            });
+            for (let field of fields) {
+                // console.log(`${idx} => 필드: ${field}, 값:${obj[field]}`);
+                // console.log(obj[field]);
+                //필드를 td에 담기
+                if (field == 'button') {//td버튼 추가 
+                    td = document.createElement("td");
+                    let btn = document.createElement("button")
+                    btn.innerHTML = "수정";
+                    td.appendChild(btn);
+                    tr.appendChild(td);
+                    btn.onclick = function(){
+                        console.log(this.parentNode.parentNode.childNodes[1].firstChild.nodeValue);
+                        let id  =this.parentNode.parentNode.childNodes[0].firstChild.nodeValue;
+                        let fName  =this.parentNode.parentNode.childNodes[1].firstChild.nodeValue;
+                        let lName  =this.parentNode.parentNode.childNodes[2].firstChild.nodeValue;
+                        let email  =this.parentNode.parentNode.childNodes[3].firstChild.nodeValue;
+                        let gender  =this.parentNode.parentNode.childNodes[4].firstChild.nodeValue;
+
+                        window.location.href=
+                        "jsonDetail.jsp?id=" + id + "&first_name=" + fName + 
+                        "&last_name=" + lName + "&email=" + email + "&gender=" + gender;
+                    }
+                } else {
+                    td = document.createElement("td");
+                    text = document.createTextNode(obj[field]);
+                    td.appendChild(text);
+                    tr.appendChild(td);
+                }
+            }
+            table.appendChild(tr);
+        });
+        document.getElementById("showResult").appendChild(table);
+
+        function showRowCnt() {
+            console.log(localStorage.getItem("first_name"));
+        }
+    </script>
+
+</body>
+
+</html>
