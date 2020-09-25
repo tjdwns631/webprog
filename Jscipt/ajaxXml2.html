@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajaxXML2.html</title>
+    <script>
+        let cnt = 0;
+        let myDiv = document.getElementById('show');
+        let lnth=0;
+        function prev() {
+            cnt--;
+            if(cnt == -1){
+                cnt=100;
+            }
+            showCD(cnt);
+        }
+        function next() {
+            cnt++;
+            if(cnt ==lnth){
+                cnt=0;
+            }
+            showCD(cnt);
+        }
+
+        function showCD(i) {
+            let xhtp = new XMLHttpRequest()
+            let myTag='';
+            let myDiv = document.getElementById('show');
+            xhtp.onreadystatechange = function () {
+                if (xhtp.readyState == 4 && xhtp.status == 200) {
+                    let data = xhtp.responseXML;
+                    let cds = data.getElementsByTagName('CD');
+                    lnth = cds.length
+                    myTag +='Title:' + cds[i].children[0].innerHTML;
+                    myTag += '<br>Artist: '+ cds[i].children[1].innerHTML;
+                    myTag += '<br>Country: '+ cds[i].children[2].innerHTML;
+
+                    myDiv.innerHTML=myTag;
+                    // console.log('title: ('+i+') ', cds[i].children[0].innerHTML);
+                    // console.log('artist', cds[i].children[1].innerHTML);
+                    // console.log('countru: ', cds[i].children[2].innerHTML);
+                }
+            }
+            xhtp.open('get', 'cd_catalog.xml');
+            xhtp.send();
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="showCD(0)">show</button>
+    <div id="show">정보</div>
+    <button onclick="prev()"><<</button> 
+    <button onclick="next()">>>
+    </button>
+</body>
+
+</html>

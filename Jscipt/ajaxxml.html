@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajaxxml.html</title>
+    <script>
+        function loadXml() {
+            let xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function () {
+                if (xhtp.readyState == 4 && xhtp.status == 200) {
+                    createPage(xhtp.responseXML);
+                }
+            }
+            xhtp.open('get', 'cd_catalog.xml', true);
+            xhtp.send();
+        }
+        // //페이지 보여주도록하는 기능
+        function createPage(data) {
+            let titles = ['Title','Artist','Country','Company','Price','Year'];
+            let cds = data.getElementsByTagName('CD');
+            let tr, td, text;
+            let tbl = document.getElementById("tbl");
+            
+           for(let title of titles){
+               td =document.createElement("th");
+               text = document.createTextNode(title);
+               td.appendChild(text);
+               tbl.appendChild(td);
+           }
+            for (let i = 0; i < cds.length; i++) {
+                tr = document.createElement("tr");
+                for(let j=0; j<titles.length; j++){
+                td = document.createElement("td");
+                text = document.createTextNode(cds[i].children[j].innerHTML);
+                td.appendChild(text);
+                tr.appendChild(td);
+                }
+                tbl.appendChild(tr);
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[0].innerHTML);
+                // td.appendChild(text);
+                // tr.appendChild(td);
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[1].innerHTML);
+                // td.appendChild(text);
+                // tr.appendChild(td);
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[2].innerHTML);
+                // td.appendChild(text);
+                // tr.appendChild(td);
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[3].innerHTML);
+                // td.appendChild(text);
+                // tr.appendChild(td);
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[4].innerHTML);
+                // td.appendChild(text);
+                // tr.appendChild(td);
+
+                // td = document.createElement("td");
+                // text = document.createTextNode(cds[i].children[5].innerHTML);
+                // td.appendChild(text);
+                // tr.appendChild(td);
+
+                // tbl.appendChild(tr);
+            }
+            // console.log(cds[0].children[1].innerHTML);
+            // document.getElementById("tbl").appendChild(tbl);
+        }
+    </script>
+</head>
+
+<body>
+    <h2>XML요청</h2><br>
+    <button onclick="loadXml()">클릭</button>
+
+    <table id="tbl" border='1' ></table>
+
+
+</body>
+
+</html>
