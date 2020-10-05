@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let obj={
+            name:"honj",
+            age:10,
+            hobby:"reading"
+        }
+        let obj1={
+            name:"kim",
+            age:14,
+            hobby:"sleeping"
+        }
+
+        let objs =[obj,obj1];
+
+        for(elem of objs){
+            for(field in objs[0]){
+                console.log(`${elem}=>필드명 : ${field}, 데이더:${elem[field]}`);
+            }
+        }
+
+function showValue(obj,arg){
+console.log(obj[arg]);
+}
+
+    showValue(obj,'name');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
